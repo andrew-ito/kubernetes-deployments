@@ -16,9 +16,12 @@ metadata:
 spec:
   imageRepositoryRef:
     name: image-repo-staging
+  filterTags:
+    pattern: '^stg-\d{1,2}\.\d{1,2}\.\d{1,2}'
   policy:
-    semver:
-      range: '>= stg-0.0.0 <stg-99.99.99'
+    alphabetical:
+      order: asc
+
 
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
