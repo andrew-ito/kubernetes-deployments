@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: image-repo
+  namespace: flux-system
+spec:
+  image: abereziuk/task-01
+  interval: 1m0s

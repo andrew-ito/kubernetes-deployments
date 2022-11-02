@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-01
+spec:
+  selector:
+    matchLabels:
+      app: kd
+  template:
+    metadata:
+      labels:
+        app: kd
+    spec:
+      containers:
+        - name: golang-app
+          image: abereziuk/task-01:latest # {"$imagepolicy": "flux-system:image-policy-dev"}
+          ports:
+          - containerPort: 8080
