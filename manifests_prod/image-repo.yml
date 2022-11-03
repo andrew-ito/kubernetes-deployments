@@ -24,13 +24,13 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: flux-system
+  name: flux-prod
   namespace: flux-system
 spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: flux-prod
   git:
     checkout:
       ref:

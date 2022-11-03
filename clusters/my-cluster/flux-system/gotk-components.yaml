@@ -7071,7 +7071,7 @@ spec:
             description: ProviderSpec defines the desired state of Provider
             properties:
               address:
-                description: HTTP/S webhook address of this provider
+                description: HTTP/S webhook-alerts address of this provider
                 pattern: ^(http|https)://
                 type: string
               certSecretRef:
@@ -7092,7 +7092,7 @@ spec:
                 pattern: ^(http|https)://
                 type: string
               secretRef:
-                description: Secret reference containing the provider webhook URL
+                description: Secret reference containing the provider webhook-alerts URL
                   using "address" as data key
                 properties:
                   name:
@@ -7348,7 +7348,7 @@ spec:
                   events handling. Defaults to false.
                 type: boolean
               type:
-                description: Type of webhook sender, used to determine the validation
+                description: Type of webhook-alerts sender, used to determine the validation
                   procedure and payload deserialization.
                 enum:
                 - generic
@@ -7445,7 +7445,7 @@ spec:
                 format: int64
                 type: integer
               url:
-                description: Generated webhook URL in the format of '/hook/sha256sum(token+name+namespace)'.
+                description: Generated webhook-alerts URL in the format of '/hook/sha256sum(token+name+namespace)'.
                 type: string
             type: object
         type: object
@@ -7719,14 +7719,14 @@ metadata:
     app.kubernetes.io/part-of: flux
     app.kubernetes.io/version: v0.36.0
     control-plane: controller
-  name: webhook-receiver
+  name: webhook-alerts-receiver
   namespace: flux-system
 spec:
   ports:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: http-webhook
+    targetPort: http-webhook-alerts
   selector:
     app: notification-controller
   type: ClusterIP
@@ -8114,7 +8114,7 @@ spec:
           name: http
           protocol: TCP
         - containerPort: 9292
-          name: http-webhook
+          name: http-webhook-alerts
           protocol: TCP
         - containerPort: 8080
           name: http-prom

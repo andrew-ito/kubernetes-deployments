@@ -16,21 +16,23 @@ metadata:
 spec:
   imageRepositoryRef:
     name: image-repo-dev
+  filterTags:
+    pattern: '\d{4}-\d{2}-\d{2}t\d{2}-\d{2}-\d{2}'
   policy:
-    semver:
-      range: '>= 0.0.0 <99.99.99'
+    alphabetical:
+      order: asc
 
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: flux-system-dev
+  name: flux-dev
   namespace: flux-system
 spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: flux-system-dev
+    name: flux-dev
   git:
     checkout:
       ref:
