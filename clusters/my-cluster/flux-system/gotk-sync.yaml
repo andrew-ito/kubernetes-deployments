@@ -12,6 +12,7 @@ spec:
   secretRef:
     name: flux-system
   url: https://github.com/andrew-ito/kubernetes-deployments.git
+  
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
