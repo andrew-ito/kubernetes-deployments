@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
         - name: golang-app
-          image: abereziuk/task-01:stg-1.1.1 # {"$imagepolicy": "flux-system:image-policy-staging"}
+          image: abereziuk/task-01:stg-1.2.3 # {"$imagepolicy": "flux-system:image-policy-staging"}
           ports:
             - containerPort: 8080
